@@ -188,25 +188,43 @@ false
 
 // Q.5 WAP to implement Merge sort using JavaScript without any function?
 
-// let arr = [9,6,3,6,8,3,1,2,5,7,9,6];
-// let n = arr.length;
-// let i, j, temp;
+function mergeSort(arr) {
+    if (arr.length <= 1) {
+        return arr;
+    }
 
-// function mergeSort(arr, n) {
-//   for (i = 0; i < n; i++) {
-//     for (j = 0; j < n - i - 1; j++) {
-//       if (arr[j] > arr[j + 1]) {
-//         temp = arr[j];
-//         arr[j] = arr[j + 1];
-//         arr[j + 1] = temp;
-//       }
-//     }
-//   }
-//   return arr;
-// }
+    let mid = Math.floor(arr.length / 2);
+    let leftside = arr.slice(0, mid);
+    let rightside = arr.slice(mid);
 
-// mergeSort(arr, n);
-// console.log(arr);
+    let Left = mergeSort(leftside);
+    let Right = mergeSort(rightside);
+
+    return merge(Left, Right);
+}
+
+function merge(left, right) {
+    let result = [];
+    let i = 0, j = 0;
+
+    while (i < left.length && j < right.length) {
+        if (left[i] < right[j]) {
+            result.push(left[i]);
+            i++;
+        } else {
+            result.push(right[j]);
+            j++;
+        }
+    }
+
+    result = result.concat(left.slice(i));
+    result = result.concat(right.slice(j));
+
+    return result;
+}
+let arr = [4,2,4,6,7,4,3,7,8,3,7]
+let sortedArr = mergeSort(arr);
+console.log(sortedArr);
 
 
-// Output :- [1, 2, 3, 3, 5, 6, 6, 6, 7, 8, 9, 9]
+// Output :- [2, 3, 3, 4, 4, 4, 6, 7, 7, 7, 8]
