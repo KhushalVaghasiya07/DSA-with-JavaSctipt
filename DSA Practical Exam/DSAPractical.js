@@ -188,43 +188,43 @@ false
 
 // Q.5 WAP to implement Merge sort using JavaScript without any function?
 
-function mergeSort(arr) {
-    if (arr.length <= 1) {
-        return arr;
-    }
+// function mergeSort(arr) {
+//     if (arr.length <= 1) {
+//         return arr;
+//     }
 
-    let mid = Math.floor(arr.length / 2);
-    let leftside = arr.slice(0, mid);
-    let rightside = arr.slice(mid);
+//     let mid = Math.floor(arr.length / 2);
+//     let leftside = arr.slice(0, mid);
+//     let rightside = arr.slice(mid);
 
-    let Left = mergeSort(leftside);
-    let Right = mergeSort(rightside);
+//     let Left = mergeSort(leftside);
+//     let Right = mergeSort(rightside);
 
-    return merge(Left, Right);
-}
+//     return merge(Left, Right);
+// }
 
-function merge(left, right) {
-    let result = [];
-    let i = 0, j = 0;
+// function merge(left, right) {
+//     let result = [];
+//     let i = 0, j = 0;
 
-    while (i < left.length && j < right.length) {
-        if (left[i] < right[j]) {
-            result.push(left[i]);
-            i++;
-        } else {
-            result.push(right[j]);
-            j++;
-        }
-    }
+//     while (i < left.length && j < right.length) {
+//         if (left[i] < right[j]) {
+//             result.push(left[i]);
+//             i++;
+//         } else {
+//             result.push(right[j]);
+//             j++;
+//         }
+//     }
 
-    result = result.concat(left.slice(i));
-    result = result.concat(right.slice(j));
+//     result = result.concat(left.slice(i));
+//     result = result.concat(right.slice(j));
 
-    return result;
-}
-let arr = [4,2,4,6,7,4,3,7,8,3,7]
-let sortedArr = mergeSort(arr);
-console.log(sortedArr);
+//     return result;
+// }
+// let arr = [4,2,4,6,7,4,3,7,8,3,7]
+// let sortedArr = mergeSort(arr);
+// console.log(sortedArr);
 
 
 // Output :- [2, 3, 3, 4, 4, 4, 6, 7, 7, 7, 8]
